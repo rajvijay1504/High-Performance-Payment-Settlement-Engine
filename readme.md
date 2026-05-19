@@ -1,8 +1,10 @@
-# High-Performance Settlement Engine (C++)
+# High-Performance payment Settlement Engine (C++)
 
 This project is a high-performance payment settlement engine I built to optimize how inter-bank debts are reconciled.
 
 The main goal was to solve the scaling issues inherent in naive settlement algorithms. I started with a standard solution that ran in quadratic time, which struggled with large datasets, and refactored it into a linear-time system using **Max-Heaps** and **Bitsets**. The final version handles 5,000+ banks with sub-millisecond latency.
+
+Two years ago, I built my first solution to the multi-party debt simplification problem, the same problem Splitwise solves for friends splitting bills, applied at banking scale. That **O(N²)** implementation worked, but as my DSA foundations deepened, I recognized it could not scale. Six months ago, I came back to it: refactored the core algorithm to **O(N log N)** using **Max-Heaps** and **Bitsets**, achieving a **432x speedup** and sub-millisecond latency at 5,000+ banks a feature that solves a real gap in Google Pay today.
 
 ## The Challenge
 
@@ -60,7 +62,7 @@ I decoupled the settlement logic into a standalone header (`SettlementEngine.h`)
 
 I benchmarked both versions on an 8-Core Apple M-Series chip. The results demonstrate a clear shift from quadratic to linear scaling as the dataset size increases.
 
-| Metric | Legacy System (O(N^2)) | Optimized Engine (O(N log N)) | Improvement |
+| Metric | Legacy System (O(N²)) | Optimized Engine (O(N log N)) | Improvement |
 | :--- | :--- | :--- | :--- |
 | **Complexity (Big-O)** | $2.31 N^2$ | **26.78 N** (Linear scaling) | **Algorithmic Shift** |
 | **Latency (5,000 Banks)** | ~57.7 ms | **~0.13 ms** | **99.7% Reduction** |
