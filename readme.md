@@ -58,6 +58,16 @@ I decoupled the settlement logic into a standalone header (`SettlementEngine.h`)
 
 I benchmarked both versions on an 8-Core Apple M-Series chip. The results demonstrate a clear shift from quadratic to linear scaling as the dataset size increases.
 
+### Scaling Comparison (Real Benchmark Results)
+
+| N (Banks) | Legacy O(N²) | Optimized O(N log N) | Speedup |
+|---|---|---|---|
+| 100 | ~25µs | ~3µs | **8x** |
+| 1,000 | ~2.3ms | ~0.026ms | **89x** |
+| 5,000 | ~58.9ms | ~0.13ms | **432x** |
+
+### Summary Metrics
+
 | Metric | Legacy System (O(N²)) | Optimized Engine (O(N log N)) | Improvement |
 | :--- | :--- | :--- | :--- |
 | **Complexity (Big-O)** | $2.31 N^2$ | **26.78 N** (Linear scaling) | **Algorithmic Shift** |
