@@ -59,7 +59,7 @@ static void BM_LegacySimulation(benchmark::State& state) {
 }
 
 // Register functions and define ranges (10 to 5000 banks)
-BENCHMARK(BM_OptimizedSolver)->RangeMultiplier(10)->Range(10, 5000)->Complexity();
-BENCHMARK(BM_LegacySimulation)->RangeMultiplier(10)->Range(10, 5000)->Complexity();
+BENCHMARK(BM_OptimizedSolver)->RangeMultiplier(10)->Range(10, 10000)->Complexity();
+BENCHMARK(BM_LegacySimulation)->RangeMultiplier(10)->Range(10, 10000)->Complexity();
 
 BENCHMARK_MAIN();
