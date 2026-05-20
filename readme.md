@@ -64,7 +64,7 @@ I benchmarked both versions on an 8-Core Apple M-Series chip. The results demons
 |---|---|---|---|
 | 100 | ~25µs | ~3µs | **8x** |
 | 1,000 | ~2.3ms | ~0.026ms | **89x** |
-| 5,000 | ~58.9ms | ~0.13ms | **432x** |
+| 5,000 | ~57.7ms | ~0.13ms | **432x** |
 
 ### Summary Metrics
 
